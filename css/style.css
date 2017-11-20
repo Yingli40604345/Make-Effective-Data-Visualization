@@ -1,0 +1,78 @@
+body {
+    text-align: justify;
+}
+h1 { color: #7c795d; 
+    font-family: 'Trocchi', serif; 
+    font-size: 45px; 
+    font-weight: normal; 
+    line-height: 48px; 
+    margin-bottom:  20px; 
+    text-align: center;
+
+}
+
+
+h2 { color: #7c795d; 
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 28px; 
+    font-weight: 400; 
+    line-height: 32px; 
+    padding-left: 120px;
+
+}
+
+
+p { color: #4c4a37; 
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 20px; 
+    line-height: 32px; 
+    margin: 0 0 18px 0; 
+    padding-left: 120px;
+    padding-right:50px;
+}
+
+.btn-pink {
+    color: #f8f8f8;
+    background-color: #E81D62;
+    border-color: #c51954;
+}
+.btn-pink:hover {
+    color: #fff;
+    background-color: #c51954;
+    border-color: #c51954;
+}
+.btn-green {
+    color: #f8f8f8;
+    background-color: #4BAE4F;
+    border-color: #449d47;
+}
+.btn-green:hover {
+    color: #fff;
+    background-color: #449d47;
+    border-color: #449d47;
+}
+.btn-orange {
+    color: #f8f8f8;
+    background-color: #FE9700;
+    border-color: #e78a01;
+}
+.btn-orange:hover {
+    color: #fff;
+    background-color: #e78a01;
+    border-color: #e78a01;
+}
+.btn-purple {
+    color: #f8f8f8;
+    background-color: #9B26AF;
+    border-color: #89219b;
+}
+.btn-purple:hover {
+    color: #fff;
+    background-color: #89219b;
+    border-color: #89219b;
+}
+
+.btn-group {
+    top:20px;
+    left:120px;
+}

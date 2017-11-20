@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <title>Titanic Survival Visualization</title>
+</head>
+<body>
+  <div class="container">
+     <h1>Titanic Survival Visualization</h1>
+   
+    <div class="btn-group"> <span class="badge  badge-info">Count</span>
+      <button id="btn1" type="button" class="btn btn-pink">Children (1-9)</button>
+      <button id="btn2" type="button" class="btn btn-green">Teenagers (10-18)</button>
+      <button id="btn3" type="button" class="btn btn-orange">Adults (19-64)</button>
+      <button id="btn4" type="button" class="btn btn btn-purple">Seniors (65+)</button>
+    </div>
+    <br>
+    <br>
+    <div class="btn-group ">  <span class="badge  badge-info">Percentage</span>
+     <button id="btn5" type="button" class="btn btn-pink">Children (1-9) </button>
+     <button id="btn6" type="button" class="btn btn-green">Teenagers (10-18)</button>
+      <button id="btn7" type="button"class="btn btn-orange">Adults (19-64)</button>
+      <button id="btn8" type="button" class="btn btn btn-purple">Seniors (65+)</button>
+    </div>
+
+
+    <div id="chartContainer">
+        <script type="text/javascript">
+         
+          var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+          d3.csv("titanic_children.csv", function (data) {
+
+            var myChart = new dimple.chart(svg, data);
+
+            var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+            x.addGroupOrderRule(["lower","middle","upper"]);   
+
+            x.title = "Sex/Ticket Class"; 
+
+            var y = myChart.addMeasureAxis("y", "Count");
+
+            y.overrideMax = 200
+
+            var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+            mySeries.addOrderRule(["deceased","survived"]);
+
+            myChart.addLegend(800, 10, 300, 20, "right");
+
+            myChart.ease = "elastic";         
+
+            myChart.draw(1300);
+
+          });
+              
+        </script>
+
+        <script type="text/javascript">
+          d3.select("#btn1").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_children.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);  
+
+
+              var y = myChart.addMeasureAxis("y", "Count");
+
+              y.overrideMax = 200
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn2").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_teenagers.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addMeasureAxis("y", "Count");
+
+              y.overrideMax = 200
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn3").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_adults.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addMeasureAxis("y", "Count");
+
+              y.overrideMax = 200
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+            
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn4").on("click", function(){
+
+             d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_seniors.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addMeasureAxis("y", "Count");
+
+              y.overrideMax = 200
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+            
+          });
+              
+      </script>
+
+
+      <script type="text/javascript">
+          d3.select("#btn5").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_children.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addPctAxis("y", "Count");
+
+              y.overrideMax = 1
+
+              y.title = "Percentage"; 
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn6").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_teenagers.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addPctAxis("y", "Count");
+
+              y.overrideMax = 1
+
+              y.title = "Percentage"; 
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn7").on("click", function(){
+
+            d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_adults.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addPctAxis("y", "Count");
+
+              y.overrideMax = 1
+
+              y.title = "Percentage"; 
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+            
+          });
+              
+      </script>
+
+      <script type="text/javascript">
+          d3.select("#btn8").on("click", function(){
+
+             d3.select("svg").remove();
+
+            var svg = dimple.newSvg("#chartContainer", 1200, 500);
+
+            d3.csv("titanic_seniors.csv", function (data) {
+
+              var myChart = new dimple.chart(svg, data);
+
+              var x = myChart.addCategoryAxis("x", ["Sex", "Pclass"]); 
+
+              x.title = "Sex/Ticket Class"; 
+
+              x.addGroupOrderRule(["lower","middle","upper"]);    
+
+              var y = myChart.addPctAxis("y", "Count");
+
+              y.overrideMax = 1
+
+              y.title = "Percentage"; 
+
+              var mySeries =myChart.addSeries("Survival", dimple.plot.bar);
+
+              mySeries.addOrderRule(["deceased","survived"]);
+
+              myChart.addLegend(800, 10, 300, 20, "right");
+
+              myChart.ease = "elastic";         
+
+              myChart.draw(1300);
+
+            });
+            
+          });
+              
+      </script>
+    </div>
+    <p>These charts show the survival count and ratio comparison among different age groups, sex and ticket classes. Readers can press different buttons to see and compare the situations for different group of people. Pink represents the survived, and blue represents the deceased. As we can see from the charts, in general, female have much higher survivor rate compared with male, and people in higher ticket class have higher survivor rate compared with people in lower ticket class.</p>
+   
+  </div>
+</body>
+</html>
